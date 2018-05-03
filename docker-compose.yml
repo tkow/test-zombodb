@@ -19,7 +19,8 @@ services:
     networks:
       - esnet
   postgres:
-    image: postgres:9.5
+    build:
+      context: ./postgres
     networks:
       - esnet
 volumes:
