@@ -1,7 +1,7 @@
 version: '3'
 
-services: 
-  tkow-elasticsearch:
+services:
+  elasticsearch:
     build:
       context: ./els
     container_name: tkow-elasticsearch
@@ -14,7 +14,7 @@ services:
         soft: -1
         hard: -1
     volumes:
-      - ./els/esdata:/usr/share/elasticsearch/data
+      - esdata:/usr/share/elasticsearch/data
     ports:
       - 9200:9200
     networks:
@@ -22,6 +22,7 @@ services:
   postgres:
     build:
       context: ./postgres
+    container_name: tkow-postgres
     networks:
       - esnet
 volumes:
